@@ -1,18 +1,18 @@
 import cv2
-import os
 
+# Read the encrypted image
 img = cv2.imread("encryptedImage.jpg")
 
-c = {}
-for i in range(255):
-    c[i] = chr(i)
-
-message = ""
-n = 0
-m = 0
-z = 0
+# Input password for decryption
 pas = input("Enter passcode for Decryption")
+
+# Check if the password is correct
 if pas == pas:
+    # Extract the secret message from the image
+    message = ""
+    n = 0
+    m = 0
+    z = 0
     for i in range(len(message)):
         message = message + c[img[n, m, z]]
         n = n + 1
@@ -20,4 +20,4 @@ if pas == pas:
         z = (z + 1) % 3
     print("Decryption message:", message)
 else:
-    print("YOU ARE NOT auth")
+    print("YOU ARE NOT auth")
